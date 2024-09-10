@@ -46,13 +46,13 @@ with st.form("form1", clear_on_submit = True):
         "Environment(s)",
         ["DEV", "TST", "PRD"],
     )
-    
+    st.write(f'the selected value is :{environments}')
     requestType = st.selectbox(
         "Type of Request",
         ("Grant Functional Role(s) to a Project Role", "Grant Functional/Project Role(s) to a Service Role", "Revoke"),
         index=None,
     )
-
+    st.write(f'the selected value is :{requestType}')
     # TODO - need to fix conditional logic using st.empty https://discuss.streamlit.io/t/can-i-add-to-a-selectbox-an-other-option-where-the-user-can-add-his-own-answer/28525/5
     addFunctionalRoleToProjectRole = st.radio(
         "Add functional role(s) to a project role?",
