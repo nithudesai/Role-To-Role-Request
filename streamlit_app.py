@@ -68,7 +68,7 @@ with st.form("form1", clear_on_submit = True):
 
     placeholder = st.empty()
 
-    if requestType == "Revoke"
+    if requestType == "Revoke":
         st.write(f'the selected value is :{requestType}')
     #if requestType == "Revoke":
     #    removeFunctionalRoleFromProjectRole = st.radio(
