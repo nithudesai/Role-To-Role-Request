@@ -91,6 +91,7 @@ with st.form("form1", clear_on_submit = True):
         "Choose functional role(s)",
         (Func_Roles_Values),
         placeholder="roles you'd like to add to target project role",
+        help="Choose functional roles you'd like to add to your project role"
     )
 
     PrjRoleValues = col2.selectbox(
@@ -98,6 +99,7 @@ with st.form("form1", clear_on_submit = True):
         (Prj_Roles_Values),
         index=None,
         placeholder="role you'd like to add the additional access",
+        help="Choose a target project tole that you'd like to add the additional access"
     )
 
     col3, col4 = st.columns(2)
