@@ -67,15 +67,15 @@ with st.form("form1", clear_on_submit = True):
 
     if requestType == "Revoke":
         removeFunctionalRoleFromProjectRole = st.radio(
-            "Remove functional role(s) from project role(s)?",
-            ["Yes", "No"],
-            index=None,
+        "Remove functional role(s) from project role(s)?",
+        ["Yes", "No"],
+        index=None,
         )
 
         removeFunctionalRoleFromServiceAccountRole = st.radio(
-            "Remove functional role(s) from service account role(s)?",
-            ["Yes", "No"],
-            index=None,
+        "Remove functional role(s) from service account role(s)?",
+        ["Yes", "No"],
+        index=None,
         )
 
     col1, col2 = st.columns(2)
