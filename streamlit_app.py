@@ -34,7 +34,7 @@ conn.close()
 # create form
 st.header('Snowflake Role Request Form')
 with st.form("form1", clear_on_submit = True):
-    requestType = st.empty()
+    #requestType = st.empty()
     snowflakeAccount = st.selectbox(
         "Snowflake Account",
         ("US", "EU"),
@@ -52,7 +52,9 @@ with st.form("form1", clear_on_submit = True):
         ("Grant Functional Role(s) to a Project Role", "Grant Functional/Project Role(s) to a Service Role", "Revoke"),
         index=None,
     )
-    st.write(f'the selected value is :{requestType}')
+    st.write(f'the selected value 1 is :{requestType}')
+    if requestType:
+        st.write(f'the selected value 2 is :{requestType}')
     # TODO - need to fix conditional logic using st.empty https://discuss.streamlit.io/t/can-i-add-to-a-selectbox-an-other-option-where-the-user-can-add-his-own-answer/28525/5
     addFunctionalRoleToProjectRole = st.radio(
         "Add functional role(s) to a project role?",
@@ -69,7 +71,7 @@ with st.form("form1", clear_on_submit = True):
     placeholder = st.empty()
 
     if requestType == "Revoke":
-        st.write(f'the selected value is :{requestType}')
+        st.write(f'the selected value 3 is :{requestType}')
     #if requestType == "Revoke":
     #    removeFunctionalRoleFromProjectRole = st.radio(
     #    "Remove functional role(s) from project role(s)?",
