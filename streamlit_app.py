@@ -65,7 +65,7 @@ with st.form("form1", clear_on_submit = True):
         index=None,
     )
 
-    if st.session_state.requestType == "Revoke":
+    if requestType == "Revoke":
         removeFunctionalRoleFromProjectRole = st.radio(
             "Remove functional role(s) from project role(s)?",
             ["Yes", "No"],
