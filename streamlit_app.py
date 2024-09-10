@@ -34,6 +34,7 @@ conn.close()
 # create form
 st.header('Snowflake Role Request Form')
 with st.form("form1", clear_on_submit = True):
+    requestType = st.empty()
     snowflakeAccount = st.selectbox(
         "Snowflake Account",
         ("US", "EU"),
@@ -65,18 +66,22 @@ with st.form("form1", clear_on_submit = True):
         index=None,
     )
 
-    if requestType == "Revoke":
-        removeFunctionalRoleFromProjectRole = st.radio(
-        "Remove functional role(s) from project role(s)?",
-        ["Yes", "No"],
-        index=None,
-        )
+    placeholder = st.empty()
 
-        removeFunctionalRoleFromServiceAccountRole = st.radio(
-        "Remove functional role(s) from service account role(s)?",
-        ["Yes", "No"],
-        index=None,
-        )
+    if requestType == "Revoke"
+        st.write(f'the selected value is :{requestType}')
+    #if requestType == "Revoke":
+    #    removeFunctionalRoleFromProjectRole = st.radio(
+    #    "Remove functional role(s) from project role(s)?",
+    #    ["Yes", "No"],
+    #    index=None,
+    #    )
+
+    #   removeFunctionalRoleFromServiceAccountRole = st.radio(
+    #    "Remove functional role(s) from service account role(s)?",
+    #    ["Yes", "No"],
+    #    index=None,
+    #    )
 
     col1, col2 = st.columns(2)
 
