@@ -48,7 +48,7 @@ with st.form("form1", clear_on_submit = True):
     
     requestType = st.selectbox(
         "Type of Request",
-        ("Grant Functional Role(s) to a Project Role", "Grant Functional/Project Role(s) to a Service Role", "Revoke Role"),
+        ("Grant Functional Role(s) to a Project Role", "Grant Functional/Project Role(s) to a Service Role", "Revoke"),
         index=None,
     )
 
@@ -64,17 +64,19 @@ with st.form("form1", clear_on_submit = True):
         ["Yes", "No"],
         index=None,
     )
-    removeFunctionalRoleFromProjectRole = st.radio(
-        "Remove functional role(s) from project role(s)?",
-        ["Yes", "No"],
-        index=None,
-    )
 
-    removeFunctionalRoleFromServiceAccountRole = st.radio(
-        "Remove functional role(s) from service account role(s)?",
-        ["Yes", "No"],
-        index=None,
-    )
+    if st.session_state.requestType == "Revoke":
+        removeFunctionalRoleFromProjectRole = st.radio(
+            "Remove functional role(s) from project role(s)?",
+            ["Yes", "No"],
+            index=None,
+        )
+
+        removeFunctionalRoleFromServiceAccountRole = st.radio(
+            "Remove functional role(s) from service account role(s)?",
+            ["Yes", "No"],
+            index=None,
+        )
 
     col1, col2 = st.columns(2)
 
