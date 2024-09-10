@@ -81,14 +81,14 @@ with st.form("form1", clear_on_submit = True):
     FrRoleValues = col1.multiselect(
         "Choose functional role(s)",
         (Func_Roles_Values),
-        placeholder="Choose roles that you'd like to add to your target project role",
+        placeholder="roles you'd like to add to target project role",
     )
 
     PrjRoleValues = col2.selectbox(
         "Choose a target Project role",
         (Prj_Roles_Values),
         index=None,
-        placeholder="Choose a role that you'd like to add the additional access",
+        placeholder="role you'd like to add the additional access",
     )
 
     col3, col4 = st.columns(2)
