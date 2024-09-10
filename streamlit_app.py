@@ -81,30 +81,23 @@ with st.form("form1", clear_on_submit = True):
     FrRoleValues = col1.multiselect(
         "Choose functional role(s)",
         (Func_Roles_Values),
+        placeholder="Choose roles that you'd like to add to your target project role",
     )
-    
-    #FrRoleValues = st.multiselect(
-    #    "Choose functional role(s)",
-    #    (Func_Roles_Values),
-    #)
 
     PrjRoleValues = col2.selectbox(
         "Choose a target Project role",
         (Prj_Roles_Values),
         index=None,
+        placeholder="Choose a role that you'd like to add the additional access",
     )
-    #PrjRoleValues = st.selectbox(
-    #    "Choose a Project role",
-    #    (Prj_Roles_Values),
-    #    index=None,
-    #)
 
-    FrPrRoleValues = st.multiselect(
+    col3, col4 = st.columns(2)
+    FrPrRoleValues = col3.multiselect(
         "Choose functional/project role(s)",
         (FR_PR_Values),
     )
 
-    SvcRoleValues = st.selectbox(
+    SvcRoleValues = col4.selectbox(
         "Choose a target Service Acct role",
         (Svc_Roles_Values),
         index=None,
