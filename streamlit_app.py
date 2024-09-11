@@ -16,16 +16,16 @@ def get_sf_dropdown_values(sql):
 conn = snowflake.connector.connect(**st.secrets["snowflake"])
 
 # populate dropdown values from SF queries - TODO insert more queries
-sql = "select name from FR_ROLES"
+sql = "select name from FR_ROLES ORDER BY 1"
 Func_Roles_Values = get_sf_dropdown_values(sql)
 
-sql = "select name from PRJ_ROLES"
+sql = "select name from PRJ_ROLES ORDER BY 1"
 Prj_Roles_Values = get_sf_dropdown_values(sql)
 
-sql = "select name from PRJ_ROLES UNION SELECT name from FR_ROLES"
+sql = "select name from PRJ_ROLES UNION SELECT name from FR_ROLES ORDER BY 1"
 FR_PR_Values = get_sf_dropdown_values(sql)
 
-sql = "select name from SVC_ROLES"
+sql = "select name from SVC_ROLES ORDER BY 1"
 Svc_Roles_Values = get_sf_dropdown_values(sql)
 
 # close snowflake connection
@@ -46,13 +46,11 @@ with st.form("form1", clear_on_submit = True):
         "Environment(s)",
         ["DEV", "TST", "PRD"],
     )
-    st.write(f'the selected value is :{environments}')
     requestType = st.selectbox(
         "Type of Request",
         ("Grant Functional Role(s) to a Project Role", "Grant Functional/Project Role(s) to a Service Role", "Revoke"),
         index=None,
     )
-    st.write(f'the selected value 1 is :{requestType}')
     if requestType:
         st.write(f'the selected value 2 is :{requestType}')
     # TODO - need to fix conditional logic using st.empty https://discuss.streamlit.io/t/can-i-add-to-a-selectbox-an-other-option-where-the-user-can-add-his-own-answer/28525/5
